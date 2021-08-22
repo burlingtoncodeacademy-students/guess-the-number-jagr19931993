@@ -30,6 +30,9 @@ async function start() {
       `\n Ok! To make it easy on you, my number is between 1 and 10. What is your guess? \n`
     );
 
+  //ensuring no type conflict
+  userGuess = parseInt(userGuess);
+
     //game break detector = if "secretNum" is not a number OR "secretNum" is greater than max
     if (isNaN(userGuess)) {
       console.log(`\n Play along or don't play at all!`);
@@ -39,8 +42,6 @@ async function start() {
       process.exit();
     }
 
-    //ensuring no type conflict
-    userGuess = parseInt(userGuess);
 
     //what happens if the player guesses compNum initially
     while (userGuess === compNum) {
@@ -64,6 +65,14 @@ async function start() {
 
       //ensuring no type conflict
       nextGuess = parseInt(nextGuess);
+
+      if (isNaN(nextGuess)) {
+        console.log(`\n Play along or don't play at all!`);
+        process.exit();
+      } else if (nextGuess > 10) {
+        console.log(`\n Hey! I said between 1 and 10!`);
+        process.exit();
+      }
 
       //if their nextGuess is equal to compNum (win condition)
       if (nextGuess === compNum) {
