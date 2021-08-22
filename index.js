@@ -33,7 +33,7 @@ async function start() {
   //ensuring no type conflict
   userGuess = parseInt(userGuess);
 
-    //game break detector = if "secretNum" is not a number OR "secretNum" is greater than max
+    //game break detector = if "userGuess" is not a number OR "userGuess" is greater than max
     if (isNaN(userGuess)) {
       console.log(`\n Play along or don't play at all!`);
       process.exit();
@@ -66,6 +66,7 @@ async function start() {
       //ensuring no type conflict
       nextGuess = parseInt(nextGuess);
 
+      //game break detector = if "nextGuess is not a number OR "nextGuess is greater than max
       if (isNaN(nextGuess)) {
         console.log(`\n Play along or don't play at all!`);
         process.exit();
@@ -215,7 +216,7 @@ async function start() {
 
       //cheat detector = if player enters H or L when the opposite is true
       else {
-        console.log(`\n Why are you cheating?`);
+        console.log(`\n Play along or don't play at all!`);
         process.exit();
       }
     }
